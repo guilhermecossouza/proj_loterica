@@ -1,47 +1,23 @@
-import servicos
-import servicos.mega_sena
-import servicos.menu
+from servicos import loterias_caixa
 
 
-def get_opcoes_jogos():
-    opcoes_menu = servicos.menu.get_nome_concursos()
-    if opcoes_menu:
-        qtd_opcoes = len(opcoes_menu)
-        str_jogo = ""
-        print("MENU")
-        print("Escolha a opção desejada!\n")
-        for chave, valor in enumerate(opcoes_menu):
-            print(f" {chave + 1} - {valor.upper()}")
-        while True:
-            try:
-                opcao = int(input("Informe a opção desejada: "))
-                if 0 < opcao <= qtd_opcoes - 1:
-                    str_jogo = opcoes_menu[opcao - 1]
-                    break
-                else:
-                    print("Opção inválida.")
-            except ValueError:
-                print("Opção inválida.")
-
-        return str_jogo
-
-
-def opcoes_informacao_jogo():
-    print("Opções de informações do jogo escolhido:")
-    opcoes_informacoes = ['RESULTADOS']
-    qtd_opcoes = len(opcoes_informacoes)
-    str_opcao = ""
-    for chave, valor in enumerate(opcoes_informacoes):
-        print(f"{chave + 1} - {valor}")
-
+def menu_principal():
+    print('-='*15)
+    print("{:^30}".format("Sitema Loterias"))
+    print("{:^30}".format("MENU"))
+    print("Informe a opção desejada:")
+    nome_opcao_desejada = ""
+    nome_jogos = loterias_caixa.get_nome_jogos_oferecidos()
+    for opcao, nome in enumerate(nome_jogos):
+        print(f"{opcao + 1} - {nome}")
     while True:
         try:
-            opcao = int(input("Informe a opção desejada: "))
-            if 0 < opcao <= qtd_opcoes:
-                str_opcao = opcoes_informacoes[opcao - 1]
+            opcao_desejada = int(input("Informe a sua opção: ")) - 1
+            if 0 <= opcao_desejada <= len(nome_jogos) - 1:
+                nome_opcao_desejada = nome_jogos[opcao_desejada]
                 break
             else:
-                print("Opção inválida.")
-        except ValueError:
-            print("Opção inválida.")
-    return str_opcao
+                print("\033[31mOpção informada inválida.\033[m")
+        except:
+            print("\033[31mOpção informada inválida.\033[m")
+    return nome_opcao_desejada
