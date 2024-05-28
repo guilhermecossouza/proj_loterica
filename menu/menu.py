@@ -21,3 +21,21 @@ def menu_principal():
         except:
             print("\033[31mOpção informada inválida.\033[m")
     return nome_opcao_desejada
+
+
+def menu_informacoes_concurso(nome_concurso):
+    lista_opcaoes = ['Conferir concursos', 'Resultado último concurso']
+    print(f"Você escolheu o concurso {nome_concurso}")
+    for posicao, opcao in enumerate(lista_opcaoes):
+        print(f"{posicao + 1} - {opcao}")
+
+    while True:
+        try:
+            oposicao_escolhida = int(input("Informe a opção desejada: "))
+            if 0 < oposicao_escolhida <= len(lista_opcaoes):
+                oposicao_escolhida -= 1
+                return lista_opcaoes[oposicao_escolhida]
+            else:
+                print("\033[31mOpção informada inválida.\033[m")
+        except:
+            print("\033[31mOpção informada inválida.\033[m")

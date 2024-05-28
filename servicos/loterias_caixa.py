@@ -1,4 +1,4 @@
-from arquivos import grava_arquivos
+from arquivos import func_arquivos
 import requests
 
 
@@ -14,6 +14,7 @@ def get_nome_jogos_oferecidos():
 def get_concursos_sorteados(nome_concurso):
     url = f"https://loteriascaixa-api.herokuapp.com/api/{nome_concurso}/"
     resposta = requests.get(url)
+    resposta.encoding = resposta.apparent_encoding
     if resposta.status_code == 200:
         concursos = resposta.json()
     else:
