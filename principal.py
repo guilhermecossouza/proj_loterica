@@ -1,7 +1,6 @@
 from menu import menu
 from arquivos import func_arquivos
-import regex
-
+from funcoes import valida_entrada_dados
 
 if __name__ == "__main__":
     nome_opcao_desejada = menu.menu_principal()
@@ -13,21 +12,8 @@ if __name__ == "__main__":
     match opcao_escolhida:
         case "Conferir concursos":
             try:
-                numero_concurso = int(input("Informe o número do conceurso: "))
-                conferir_dezenas = str(
-                    input("Deseja conferir também as dezenas [S/N]? ")).strip().upper()[0]
-                if conferir_dezenas == "S":
-                    dezenas_jogo_realizado = str(
-                        input("Informe as dezenas separadas por [,]: "))
-                    dezenas = regex.compile(",")
-                    if dezenas.search(dezenas_jogo_realizado):
-                        dezenas_jogo_realizado = dezenas_jogo_realizado.replace(
-                            " ", "")
-                        func_arquivos.consuta_concurso_pelo_numero(
-                            nome_opcao_desejada, dezenas_jogo_realizado)
-                    else:
-                        func_arquivos.consuta_concurso_pelo_numero(
-                            numero_concurso)
+                print(valida_entrada_dados.set_dezenas_concurso(
+                    nome_opcao_desejada))
 
             except ValueError as vl:
                 print(print(f"\033[31m{vl.args}\033[m"))
