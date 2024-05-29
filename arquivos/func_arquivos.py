@@ -27,12 +27,3 @@ def gera_registro_novo(nome_concurso):
     if concursos:
         with open(caminho_arquivo, "w") as arquivo:
             json.dump(concursos, arquivo, indent=4)
-
-
-def consuta_concurso_pelo_numero(numero_concurso, dezenas_concurso=None):
-    if dezenas_concurso:
-        if int(ord(dezenas_concurso[-1])) == 44:
-            dezenas_concurso = dezenas_concurso[:-1]
-
-        arr_dezenas_concurso = dezenas_concurso.split(",")
-        print(arr_dezenas_concurso)

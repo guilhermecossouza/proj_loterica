@@ -1,6 +1,7 @@
 from menu import menu
 from arquivos import func_arquivos
-from funcoes import valida_entrada_dados
+from funcoes import resultados_concurso, valida_entrada_dados
+
 
 if __name__ == "__main__":
     nome_opcao_desejada = menu.menu_principal()
@@ -14,5 +15,10 @@ if __name__ == "__main__":
                 nome_opcao_desejada)
             conferir = valida_entrada_dados.conferir_dezenas()
             if conferir:
-                print(valida_entrada_dados.set_dezenas_concurso(
-                    nome_opcao_desejada))
+                dezenas_jogadas = valida_entrada_dados.set_dezenas_concurso(
+                    nome_opcao_desejada)
+                resultados_concurso.conferindo_concurso(
+                    nome_opcao_desejada, numero_concurso, dezenas_jogadas)
+            else:
+                resultados_concurso.conferindo_concurso(
+                    nome_opcao_desejada, numero_concurso)
