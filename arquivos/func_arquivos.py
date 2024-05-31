@@ -27,3 +27,18 @@ def gera_registro_novo(nome_concurso):
     if concursos:
         with open(caminho_arquivo, "w") as arquivo:
             json.dump(concursos, arquivo, indent=4)
+
+
+def busca_arquivo(nome_concurso):
+    nome_arquivo = f"{datetime.datetime.today().strftime(
+        "%Y-%m-%d")}-{nome_concurso}.json"
+    caminho_arquivo = os.path.join("arquivos")
+    caminho_completo = f"{caminho_arquivo}/{nome_arquivo}"
+    arquivo_concurso = None
+    if os.path.exists(caminho_completo):
+        with open(caminho_completo, "r") as concurso:
+            arquivo_concurso = json.load(concurso)
+    else:
+        print(f"\033[31mDados sobre {nome_concurso} não encontrados.\033[m")
+
+    return arquivo_concurso

@@ -1,43 +1,30 @@
 
-import datetime
-import os
-import json
+from arquivos import func_arquivos
+
+
+def ultimo_concurso(nome_concurso):
+    dados_concurso = None
+    arquivo_concurso = func_arquivos.busca_arquivo(nome_concurso)
+    if arquivo_concurso:
+        for concurso in arquivo_concurso:
+            dados_concurso = concurso
+            break
+    return dados_concurso
 
 
 def conferindo_concurso(nome_concurso, numero_concurso, dezenas_jogadas=None):
     informacoes = None
-    nome_arquivo = f"{datetime.datetime.today().strftime(
-        "%Y-%m-%d")}-{nome_concurso}.json"
-    caminho_arquivo = os.path.join("arquivos")
-    caminho_completo = f"{caminho_arquivo}/{nome_arquivo}"
-    if os.path.exists(caminho_completo):
-        with open(caminho_completo, "r") as concurso:
-            arquivo_concurso = json.load(concurso)
-
+    arquivo_concurso = func_arquivos.busca_arquivo(nome_concurso)
+    if arquivo_concurso:
         for concurso in arquivo_concurso:
             if int(numero_concurso) == concurso["concurso"]:
                 informacoes = concurso
+                break
+            else:
+                informacoes = None
     else:
-        print(f"\033[31mDados sobre {nome_concurso} não encontrados.\033[m")
-
+        informacoes = None
     return informacoes
-
-
-def ultimo_concurso(nome_concurso):
-    nome_arquivo = f"{datetime.datetime.today().strftime(
-        "%Y-%m-%d")}-{nome_concurso}.json"
-    caminho_arquivo = os.path.join("arquivos")
-    caminho_completo = f"{caminho_arquivo}/{nome_arquivo}"
-    if os.path.exists(caminho_completo):
-        with open(caminho_completo, "r") as concurso:
-            arquivo_concurso = json.load(concurso)
-
-        dados_concurso = None
-        for concurso in arquivo_concurso:
-            dados_concurso = concurso
-            break
-
-        return dados_concurso
 
 
 def conferi_dezenas(dezenas_jogadas, dezenas_sorteadas):
@@ -45,3 +32,51 @@ def conferi_dezenas(dezenas_jogadas, dezenas_sorteadas):
     dezenas_acerto = [
         numero for numero in dezenas_jogadas if dezenas_sorteadas.count(numero) > 0]
     return f"Você teve um total de {len(dezenas_acerto)} acertos, e as dezenas foram {dezenas_acerto}"
+
+
+def dezenas_mais_sorteadas(nome_concurso):
+    dezenas = list()
+    arquivo_concurso = func_arquivos.busca_arquivo(nome_concurso)
+    if arquivo_concurso:
+        for concurso in arquivo_concurso:
+            for dezena in concurso.get("dezenas"):
+                dezenas.append(int(dezena))
+
+        match nome_concurso:
+            case "maismilionaria":
+                dezena_incial_volante = 1
+                dezena_final_volante = 50
+            case "megasena":
+                dezena_incial_volante = 1
+                dezena_final_volante = 60
+            case "lotofacil":
+                dezena_incial_volante = 1
+                dezena_final_volante = 25
+            case "quina":
+                dezena_incial_volante = 1
+                dezena_final_volante = 80
+            case "lotomania":
+                dezena_incial_volante = 1
+                dezena_final_volante = 100
+            case "timemania":
+                dezena_incial_volante = 1
+                dezena_final_volante = 80
+            case "duplasena":
+                dezena_incial_volante = 1
+                dezena_final_volante = 50
+            case "federal":
+                dezena_incial_volante = 1
+                dezena_final_volante = 5
+            case "diadesorte":
+                dezena_incial_volante = 1
+                dezena_final_volante = 31
+            case "supersete":
+                dezena_incial_volante = 0
+                dezena_final_volante = 9
+                
+        
+
+    else:
+        dezenas_mais_sorteadas = None
+
+    print(dezenas)

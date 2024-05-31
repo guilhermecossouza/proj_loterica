@@ -13,10 +13,13 @@ if __name__ == "__main__":
     match opcao_escolhida:
         case "Último concurso":
             concurso = resultados_concurso.ultimo_concurso(nome_opcao_desejada)
-            print(f"\nInformações sobre {nome_opcao_desejada}")
-            print(f"Concurso: {concurso.get("concurso")}")
-            print(f"Realizado na data de: {concurso.get("data")}")
-            print(f"Dezenas sorteadas foram: {concurso.get("dezenas")}\n")
+            if concurso:
+                print(f"\nInformações sobre {nome_opcao_desejada}")
+                print(f"Concurso: {concurso.get("concurso")}")
+                print(f"Realizado na data de: {concurso.get("data")}")
+                print(f"Dezenas sorteadas foram: {concurso.get("dezenas")}\n")
+            else:
+                print("\033[31mNão foi possível mostrar as informações.\033[m")
 
         case "Consulta concurso":
             numero_concurso = valida_entrada_dados.numero_concurso(
@@ -51,3 +54,6 @@ if __name__ == "__main__":
 
             else:
                 print("\033[31mNão foi possível mostrar as informações.\033[m")
+
+        case "Dezenas mais sorteadas":
+            resultados_concurso.dezenas_mais_sorteadas(nome_opcao_desejada)

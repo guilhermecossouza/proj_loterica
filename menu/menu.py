@@ -24,7 +24,7 @@ def menu_principal():
 
 def menu_informacoes_concurso(nome_concurso):
     lista_opcaoes = ["Último concurso",
-                     "Consulta concurso", "Conferir dezenas"]
+                     "Consulta concurso", "Conferir dezenas", "Dezenas mais sorteadas"]
     print(f"Você escolheu o concurso {nome_concurso}")
     for posicao, opcao in enumerate(lista_opcaoes):
         print(f"{posicao + 1} - {opcao}")
