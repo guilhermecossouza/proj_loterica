@@ -6,7 +6,6 @@ def menu_principal():
     print("{:^30}".format("Sitema Loterias"))
     print("{:^30}".format("MENU"))
     print("Informe a opção desejada:")
-    nome_opcao_desejada = ""
     nome_jogos = loterias_caixa.get_nome_jogos_oferecidos()
     for opcao, nome in enumerate(nome_jogos):
         print(f"{opcao + 1} - {nome}")
@@ -24,7 +23,8 @@ def menu_principal():
 
 
 def menu_informacoes_concurso(nome_concurso):
-    lista_opcaoes = ['Conferir concursos', 'Resultado último concurso']
+    lista_opcaoes = ["Último concurso",
+                     "Consulta concurso", "Conferir dezenas"]
     print(f"Você escolheu o concurso {nome_concurso}")
     for posicao, opcao in enumerate(lista_opcaoes):
         print(f"{posicao + 1} - {opcao}")
