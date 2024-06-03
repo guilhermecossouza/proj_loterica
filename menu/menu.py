@@ -8,7 +8,8 @@ def menu_principal():
     print("Informe a opção desejada:")
     nome_jogos = loterias_caixa.get_nome_jogos_oferecidos()
     for opcao, nome in enumerate(nome_jogos):
-        print(f"{opcao + 1} - {nome}")
+        if nome != "federal":
+            print(f"{opcao + 1} - {nome}")
     while True:
         try:
             opcao_desejada = int(input("Informe a sua opção: ")) - 1

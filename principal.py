@@ -56,4 +56,15 @@ if __name__ == "__main__":
                 print("\033[31mNão foi possível mostrar as informações.\033[m")
 
         case "Dezenas mais sorteadas":
-            resultados_concurso.dezenas_mais_sorteadas(nome_opcao_desejada)
+            resultados = resultados_concurso.dezenas_mais_sorteadas(
+                nome_opcao_desejada)
+            if nome_opcao_desejada == "supersete":
+                for numero in range(1, 8):
+                    for resultado in resultados:
+                        print(f"bloco: {numero}")
+                        for chave, valor in resultado.items():
+                            print(f"posição: {chave} - quantidade: {valor}")
+            else:
+                for resultado in resultados:
+                    for chave, valor in resultado.items():
+                        print(f"posição: {chave} - quantidade: {valor}")
