@@ -1,6 +1,7 @@
 # proj_loterica
 
-Para o desenvolvimento deste projeto, realizamos um estudo para encontrar uma API que fornecesse os dados necessários. Durante essa pesquisa, encontramos o repositório do guto-alves, que disponibiliza uma API para obter esses resultados. Para mais informações, acesse o repositório.
+Para o desenvolvimento deste projeto, realizamos um estudo para encontrar uma API que fornecesse os dados necessários. Durante essa pesquisa, encontramos o repositório do guto-alves, que disponibiliza uma API para obter esses resultados. Para mais informações, acesse o repositório:
+https://github.com/guto-alves/loterias-api
 
 Este projeto foi desenvolvido com o objetivo de aprimorar habilidades na linguagem Python, focando na realização de consultas a uma API que retorna informações sobre resultados de sorteios de apostas, como:
 
@@ -14,6 +15,7 @@ Obtenção do resultado do último sorteio
 Consulta pelo número do concurso
 Conferência de sorteios
 
+Obs.: Este projeto tem como finalidade demostrar o que tenho aprendido com os crusos reslizados na linguagem.
 
 
 
