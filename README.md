@@ -1,8 +1,20 @@
 # proj_loterica
 
-Este projeto foi desenvolvido para aprimoramento da linguagem Python e tem como objetivo de realizar consultas consumindo de uma api que retorna informações sobre resultados de  sorteios de apostas como por exemplo:
-Megasena, Lotofacil, Quina e etc.
-As funcionabilidades dele é saber o resultado do último sorteio, consulta pelo número do concurso, conferência de sorteios e dezenas mais sorteadas. 
+Para o desenvolvimento deste projeto, realizamos um estudo para encontrar uma API que fornecesse os dados necessários. Durante essa pesquisa, encontramos o repositório do guto-alves, que disponibiliza uma API para obter esses resultados. Para mais informações, acesse o repositório.
+
+Este projeto foi desenvolvido com o objetivo de aprimorar habilidades na linguagem Python, focando na realização de consultas a uma API que retorna informações sobre resultados de sorteios de apostas, como:
+
+Mega-Sena
+Lotofácil
+Quina
+Entre outros
+As funcionalidades principais incluem:
+
+Obtenção do resultado do último sorteio
+Consulta pelo número do concurso
+Conferência de sorteios
+
+
 
 
 
